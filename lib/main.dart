@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(const MyApp());
-
 }
 
 class MyApp extends StatefulWidget {
@@ -14,7 +13,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   final controller=TextEditingController();
   final List<bool> _selection =[true,false,false];
-  String tip='cal';
+  String tip='   Enter the Amount';
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +24,7 @@ class _MyAppState extends State<MyApp> {
             mainAxisAlignment: MainAxisAlignment.center,
 
             children:  [
-               
+              
                 Padding(
                   padding: const EdgeInsets.all(20),
                   child: Text(
@@ -51,7 +50,8 @@ class _MyAppState extends State<MyApp> {
                   onPressed: updateSelection,
                   ),
               ),
-              FlatButton(onPressed: (){}, child: const Text('Calculator Tip'),
+              FlatButton(onPressed: calculateTip,
+               child: const Text('Calculator Tip'),
               color: Colors.deepPurple,
               textColor: Colors.white,
               ),
@@ -64,7 +64,7 @@ class _MyAppState extends State<MyApp> {
   void updateSelection(int selectIndex){
     setState(() {
       for(int i=0;i<_selection.length;i++){
-      _selection[i]=selectIndex==i;
+        _selection[i]=selectIndex==i;
       }
     });
   }
